@@ -18,6 +18,13 @@ public class ConsumidorApplication {
                 .build();
     }
     //o nome do método define o nome do bean
+    @Bean
+    public WebClient localidadesClient(WebClient.Builder builder){
+        return builder
+                .baseUrl("https://servicodados.ibge.gov.br/api/v1")
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .build();
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(ConsumidorApplication.class, args);
